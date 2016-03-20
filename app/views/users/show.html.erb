@@ -42,7 +42,7 @@ div#user_info {background-color:#FFFFFF;height:150px; float: left;}
   </div>
   <%= will_paginate @posts %>
   <%else%>
-  <h1>Share your idea</h1>
+  <h1><%= link_to "Share your idea",new_post_path %></h1>
   <%end%>
 </aside>
 </div>

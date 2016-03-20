@@ -1,2 +1,0 @@
-$('#follow_user<%=@user.id%>').html('<%= escape_javascript(render :partial => "users/follow_user", :locals => {:user => @user}) %>');
-$("#followers").html('<%= @user.followers.count %>');

@@ -1,14 +1,9 @@
 <% unless user == current_user %>
-  <% if current_user.following?(user) %>
-
-    <%= link_to(unfollow_user_path(user), :remote => true, :class => 'btn btn-primary') do %>
-   <i class="icon-remove icon-white"></i>
-   Un-Follow
- <% end %>
+  <div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%= render 'unfollow' %>
   <% else %>
-    <%= link_to(follow_user_path(user) ,:remote => true, :class => 'btn btn-primary') do %>
-    <i class="icon-ok icon-white"></i>
-    Follow
-    <%end%>
+    <%= render 'follow' %>
   <% end %>
+  </div>
 <% end %>

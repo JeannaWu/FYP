@@ -2,21 +2,17 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :users do
+    collection do
+    get :tigers
+  end
     member do
-    get :follow
-    get :unfollow
+    #get :follow
+    #get :unfollow
     get :following, :followers
     
 end
 end
-
-
-
-
-  resources :categories 
-   
-  
-
+ resources :categories 
  resources :posts do
  	member do
  		get "like", to:"posts#upvote"
@@ -37,10 +33,10 @@ end
  end
 
 
- 
+  resources :account_activations, only: [:edit]
+  resources :relationships,       only: [:create, :destroy]
   root 'posts#index'
   get 'static_pages/home'
   get 'static_pages/help'
-  resources :follows
   
 end
