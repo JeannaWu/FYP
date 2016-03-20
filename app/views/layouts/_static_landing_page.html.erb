@@ -1,0 +1,4 @@
+
+
+	
+   <i class="fa fa-thumbs-o-up"> </i><%=link_to"Approve", approve_post_path(@post), method: :patch%><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure to delete the post?"}%>

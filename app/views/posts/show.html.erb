@@ -19,7 +19,7 @@
 						<%= link_to "Edit", edit_post_path(@post)%>
 					<% end %>
 					<% if can? :destroy, @post %>
-						<%= link_to "Destroy", post_path(@post), method: :delete, data: {confirm: "Are you sure to delete the post?"}%>
+						<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure to delete the post?"}%>
 					<%- end %>
 				</p>
         		</div>
@@ -45,6 +45,11 @@
 
 							</span>
 						</p>
+						<p class = "actions">
+							<% if current_user.paneluser?%>
+							<%= render 'layouts/static_landing_page'%>
+                           <% end %>
+						</p>
           	</div>
         </p>
       </div>
@@ -54,6 +59,7 @@
 		</div>
 		<div id = "random_post">
 			Random Posts
+			<% if @post.approved? %>
 			<div class = "post">
 				<div class = "post_image">
 					<%=link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)%>
@@ -77,6 +83,7 @@
 					</div>
 				</div>
 			</div>
+			<%end%>
 		</div>
 	</div>
 </div>

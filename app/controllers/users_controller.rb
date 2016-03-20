@@ -6,14 +6,14 @@ class UsersController < ApplicationController
     
 		@user = User.where(:name => params[:name]).first
     @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page], per_page: 20)
+    @posts = @user.posts.paginate(:page => 1, :per_page => 36)
        
 	end
   
 
   def index
 
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 30)
   end
 
   
@@ -94,12 +94,12 @@ end
          render 'show_follow'
         end
 
-        def joining
-          @title = "Joining"
-          @user  = User.find(params[:id])
-          @clubs = @user.ffollowing_by_type(@club).paginate(page: params[:page])
-         render 'show_join'
-        end
+      #  def joining
+       #   @title = "Joining"
+        #  @user  = User.find(params[:id])
+         # @clubs = @user.ffollowing_by_type(@club).paginate(page: params[:page])
+         #render 'show_join'
+        #end
 
       def followers
           @title = "Followers"

@@ -1,9 +1,4 @@
-<div id ="post_club">
-
-<div id = "posts">
-   <% @posts.each do |post| %> 
-   <% if post.approved? %>
-  <div class = "post">
+<div class = "post">
     <div class = "post_image">
       <%= link_to (image_tag post.image.url(:small)), post%>
     </div>
@@ -20,15 +15,3 @@
       </div>
     </div>
   </div>
-  <% end %> 
- 
- 
-  
-  <%end%>
-</div>
-
-
-<div id ="page">
-<%= will_paginate @posts %>
-</div>
-</div>

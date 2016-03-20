@@ -48,13 +48,14 @@
  
 </div>  
 <% end %>
-<div class="form-group">
+
+  <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
-            <%= link_to "Sign Up for Professional User", users_professional_user_path, class: "button"%>
+            <%= render "devise/shared/links" %>
         </div>
     </div>
-    
-<%= render "devise/shared/links" %>
+   
+
 </div>
 
 
